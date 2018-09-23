@@ -1,0 +1,15 @@
+.character-selection {
+    width: 80%;
+    height: 200px;
+}
+
+.character-frame {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.character-image {
+    height: 100%;
+    width: 100%;
+}
