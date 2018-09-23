@@ -11,36 +11,51 @@
 </head>
 <body>
     <div class="container">
-        <div class="game-heading">
+        <div id="game-heading">
             <h1>Star Wars 1v1</h1>
         </div>
-        <div class="character-selection">
+        <div id="character-selection">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="character-frame">
-                        <img class="character-image" src="assets/images/chewbacca.png">
-                    </div>
+                    <img class="character-image" src="assets/images/chewbacca.png">
                 </div>
                 <div class="col-md-3">
-                    <div class="character-frame">
-                        <img class="character-image"src="assets/images/darth_vader.jpg">
-                    </div>
+                    <img class="character-image"src="assets/images/darth_vader.jpg">
                 </div>
                 <div class="col-md-3">
-                    <div class="character-frame">
-                        <img class="character-image" src="assets/images/mace_windu.jpg">
-                    </div>
+                    <img class="character-image" src="assets/images/mace_windu.jpg">
                 </div>
                 <div class="col-md-3">
-                    <div class="character-frame">
-                        <img class="character-image" src="assets/images/yoda.jpg">
-                    </div>
+                    <img class="character-image" src="assets/images/yoda.jpg">
                 </div>
             </div>
         </div>
-        
+        <h1>Your character</h1>
+        <div id="your-character">
+            <img id="selected-character">
+        </div>
+        <h1>Enemies Available To Attack</h1>
+        <div class="row" id="available-enemies">
+            <div class="col-md-3">
+                <img class="character-image">
+            </div>
+            <div class="col-md-3">
+                <img class="character-image">
+            </div>
+            <div class="col-md-3">
+                <img class="character-image">
+            </div>
+        </div>
+        <h1>Fight Section</h1>
+        <div id="fight-section"></div>
+        <button id="attack">Attack</button>
+        <h1>Defender</h1>
+        <div id="defending-character">
+            <img id="defender">
+        </div>
+        <button id="restart">Restart</button>
     </div>
-
+        
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
