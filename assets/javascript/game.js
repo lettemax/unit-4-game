@@ -45,15 +45,31 @@ $(document).ready(function() {
         console.log("should have filled enemies row: "+enemies);
     }
 
+    // Function to restart
+    function restart () {
+        location.reload();
+    }
+
     // Function to check status (determine if yourCharacter or enemy has 0 or less hp)
     function checkStatus () {
         if (enemy.hp <= 0) {
             alert(enemy.name + " has been defeated");
             $("#defender").attr("src", "");
         } 
+        var counter = 0;
+        for (var i=0; i<enemies.length; i++) {
+            if (enemies[i].hp <= 0) {
+                counter++;
+            }
+        }
+        if (counter == 3) {
+            alert("Congratulations, you won!");
+            restart();
+        }
         if (yourCharacter.hp <= 0) {
             alert("you have been defeated");
             $("#selected-character").attr("src", "");
+            restart();
         }
     }
     // If user chooses chewbacca
@@ -132,6 +148,11 @@ $(document).ready(function() {
         console.log("enemy.hp: " + enemy.hp + ", yourCharacter.hp: " + yourCharacter.hp + ", yourCharacter.attack: " +
         yourCharacter.attack);
         checkStatus();
+    });
+
+    $("#restart").on("click", function() {
+        console.log("clicked attack");
+        restart();
     });
 
 
