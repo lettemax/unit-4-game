@@ -34,26 +34,35 @@ var characters = [chewbacca, darthVader, maceWindu, yoda];
 var enemies = [];
 var yourCharacter;
 var defender;
+var incrementer;
 
 $(document).ready(function() {
      // Function to fill enemies row
-     function fillEnemiesRow () {
+    function fillEnemiesRow () {
         for (var i=1; i<enemies.length+1; i++) {
             $("#"+i).attr("src", "assets/images/"+(enemies[(i-1)].img));
         }
         console.log("should have filled enemies row: "+enemies);
     }
 
-    // Function to move enemy to fight section
-
+    // Function to check status (determine if yourCharacter or enemy has 0 or less hp)
+    function checkStatus () {
+        if (enemy.hp <= 0) {
+            alert(enemy.name + " has been defeated");
+            $("#defender").attr("src", "");
+        } 
+        if (yourCharacter.hp <= 0) {
+            alert("you have been defeated");
+            $("#selected-character").attr("src", "");
+        }
+    }
     // If user chooses chewbacca
     $("#one").on("click", function() {
         console.log("clicked chew");
         $("#selected-character").attr("src", "assets/images/chewbacca.png");
         $("#character-selection").css("display", "none");
-        // $("#two").css("display", "none");
-        // $("#three").css("display", "none");
-        // $("#four").css("display", "none");
+        yourCharacter = chewbacca;
+        incrementer = yourCharacter.attack;
         enemies = [darthVader, maceWindu, yoda];
         fillEnemiesRow();
     });
@@ -63,9 +72,8 @@ $(document).ready(function() {
         console.log("clicked darth");
         $("#selected-character").attr("src", "assets/images/darth_vader.jpg");
         $("#character-selection").css("display", "none");
-        // $("#one").css("display", "none");
-        // $("#three").css("display", "none");
-        // $("#four").css("display", "none");
+        yourCharacter = darthVader;
+        incrementer = yourCharacter.attack;
         enemies = [chewbacca, maceWindu, yoda];
         fillEnemiesRow();
     });
@@ -75,9 +83,8 @@ $(document).ready(function() {
         console.log("clicked mace");
         $("#selected-character").attr("src", "assets/images/mace_windu.jpg");
         $("#character-selection").css("display", "none");
-        // $("#two").css("display", "none");
-        // $("#one").css("display", "none");
-        // $("#four").css("display", "none");
+        yourCharacter = maceWindu;
+        incrementer = yourCharacter.attack;
         enemies = [chewbacca, darthVader, yoda];
         fillEnemiesRow();
     });
@@ -87,9 +94,8 @@ $(document).ready(function() {
         console.log("clicked yoda");
         $("#selected-character").attr("src", "assets/images/yoda.jpg");
         $("#character-selection").css("display", "none");
-        // $("#two").css("display", "none");
-        // $("#three").css("display", "none");
-        // $("#one").css("display", "none");
+        yourCharacter = yoda;
+        incrementer = yourCharacter.attack;
         enemies = [chewbacca, darthVader, maceWindu];
         fillEnemiesRow();
     });
@@ -118,7 +124,15 @@ $(document).ready(function() {
         // disable clicking for other enemies
     });
 
-
+    $("#attack").on("click", function() {
+        console.log("clicked attack");
+        enemy.hp-=yourCharacter.attack;
+        yourCharacter.hp-=enemy.counter;
+        yourCharacter.attack+=incrementer;
+        console.log("enemy.hp: " + enemy.hp + ", yourCharacter.hp: " + yourCharacter.hp + ", yourCharacter.attack: " +
+        yourCharacter.attack);
+        checkStatus();
+    });
 
 
    
