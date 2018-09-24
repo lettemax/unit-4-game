@@ -9,8 +9,10 @@
     width: 100%;
 }
 
-.available-to-attack {
-    
+.available-enemy {
+    padding: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 #defender {

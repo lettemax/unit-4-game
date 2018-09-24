@@ -38,37 +38,52 @@ $(document).ready(function() {
     $("#one").on("click", function() {
         console.log("clicked chew");
         $("#selected-character").attr("src", "assets/images/chewbacca.png");
-        $("#two").attr("display", none);
-        $("#three").attr("display", none);
-        $("#four").attr("display", none);
+        $("#character-selection").css("display", "none");
+        // $("#two").css("display", "none");
+        // $("#three").css("display", "none");
+        // $("#four").css("display", "none");
         enemies = [darthVader, maceWindu, yoda];
+        fillEnemiesRow();
     });
     // If user chooses darth vader
     $("#two").on("click", function() {
         console.log("clicked darth");
         $("#selected-character").attr("src", "assets/images/darth_vader.jpg");
-        $("#one").attr("display", none);
-        $("#three").attr("display", none);
-        $("#four").attr("display", none);
+        $("#character-selection").css("display", "none");
+        // $("#one").css("display", "none");
+        // $("#three").css("display", "none");
+        // $("#four").css("display", "none");
         enemies = [chewbacca, maceWindu, yoda];
+        fillEnemiesRow();
     });
     // If user chooses mace windu
     $("#three").on("click", function() {
         console.log("clicked mace");
         $("#selected-character").attr("src", "assets/images/mace_windu.jpg");
-        $("#two").attr("display", none);
-        $("#one").attr("display", none);
-        $("#four").attr("display", none);
+        $("#character-selection").css("display", "none");
+        // $("#two").css("display", "none");
+        // $("#one").css("display", "none");
+        // $("#four").css("display", "none");
         enemies = [chewbacca, darthVader, yoda];
+        fillEnemiesRow();
     });
     // If user chooses yoda
     $("#four").on("click", function() {
         console.log("clicked yoda");
         $("#selected-character").attr("src", "assets/images/yoda.jpg");
-        $("#two").attr("display", none);
-        $("#three").attr("display", none);
-        $("#one").attr("display", none);
+        $("#character-selection").css("display", "none");
+        // $("#two").css("display", "none");
+        // $("#three").css("display", "none");
+        // $("#one").css("display", "none");
         enemies = [chewbacca, darthVader, maceWindu];
+        fillEnemiesRow();
     });
+    // Fill enemies row
+    function fillEnemiesRow () {
+        for (var i=1; i<enemies.length+1; i++) {
+            $("#"+i).attr("src", "assets/images/"+(enemies[(i-1)].img));
+        }
+        console.log("should have filled enemies row: "+enemies);
+    }
 });
 
