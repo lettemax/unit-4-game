@@ -32,8 +32,20 @@ var yoda = {
 
 var characters = [chewbacca, darthVader, maceWindu, yoda];
 var enemies = [];
+var yourCharacter;
+var defender;
 
 $(document).ready(function() {
+     // Function to fill enemies row
+     function fillEnemiesRow () {
+        for (var i=1; i<enemies.length+1; i++) {
+            $("#"+i).attr("src", "assets/images/"+(enemies[(i-1)].img));
+        }
+        console.log("should have filled enemies row: "+enemies);
+    }
+
+    // Function to move enemy to fight section
+
     // If user chooses chewbacca
     $("#one").on("click", function() {
         console.log("clicked chew");
@@ -45,6 +57,7 @@ $(document).ready(function() {
         enemies = [darthVader, maceWindu, yoda];
         fillEnemiesRow();
     });
+
     // If user chooses darth vader
     $("#two").on("click", function() {
         console.log("clicked darth");
@@ -56,6 +69,7 @@ $(document).ready(function() {
         enemies = [chewbacca, maceWindu, yoda];
         fillEnemiesRow();
     });
+
     // If user chooses mace windu
     $("#three").on("click", function() {
         console.log("clicked mace");
@@ -67,6 +81,7 @@ $(document).ready(function() {
         enemies = [chewbacca, darthVader, yoda];
         fillEnemiesRow();
     });
+
     // If user chooses yoda
     $("#four").on("click", function() {
         console.log("clicked yoda");
@@ -78,12 +93,36 @@ $(document).ready(function() {
         enemies = [chewbacca, darthVader, maceWindu];
         fillEnemiesRow();
     });
-    // Fill enemies row
-    function fillEnemiesRow () {
-        for (var i=1; i<enemies.length+1; i++) {
-            $("#"+i).attr("src", "assets/images/"+(enemies[(i-1)].img));
-        }
-        console.log("should have filled enemies row: "+enemies);
-    }
+
+    $("#1").on("click", function() {
+        console.log("clicked enemy in col 1");
+        enemy = enemies[0];
+        $("#1").css("display", "none");
+        $("#defender").attr("src", "assets/images/"+enemy.img);
+        // disable clicking for other enemies
+    });
+
+    $("#2").on("click", function() {
+        console.log("clicked enemy in col 2");
+        enemy = enemies[1];
+        $("#2").css("display", "none");
+        $("#defender").attr("src", "assets/images/"+enemy.img);
+        // disable clicking for other enemies
+    });
+
+    $("#3").on("click", function() {
+        console.log("clicked enemy in col 3");
+        enemy = enemies[2];
+        $("#3").css("display", "none");
+        $("#defender").attr("src", "assets/images/"+enemy.img);
+        // disable clicking for other enemies
+    });
+
+
+
+
+   
+
+
 });
 
