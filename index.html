@@ -14,24 +14,28 @@
     <div class="container">
         <div id="game-heading">
             <h1>Star Wars 1v1</h1>
-        </div>
-        <div id="character-selection">
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="character-image" id="one" src="assets/images/chewbacca.png">
-                </div>
-                <div class="col-md-3">
-                    <img class="character-image" id="two" src="assets/images/darth_vader.jpg">
-                </div>
-                <div class="col-md-3">
-                    <img class="character-image" id="three" src="assets/images/mace_windu.jpg">
-                </div>
-                <div class="col-md-3">
-                    <img class="character-image" id="four" src="assets/images/yoda.jpg">
+        </div>    
+        <div class="row">
+            <div id="character-selection">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="character-image" id="one" src="assets/images/chewbacca.png">
+                    </div>
+                    <div class="col-md-3">
+                        <img class="character-image" id="two" src="assets/images/darth_vader.jpg">
+                    </div>
+                    <div class="col-md-3">
+                        <img class="character-image" id="three" src="assets/images/mace_windu.jpg">
+                    </div>
+                    <div class="col-md-3">
+                        <img class="character-image" id="four" src="assets/images/yoda.jpg">
+                    </div>
                 </div>
             </div>
         </div>
-        <h1>Your character</h1>
+        <div class="row">
+            <h1 id="your-character">Your character</h1>
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <img class="character-image" id="selected-character">
@@ -51,10 +55,16 @@
         </div>
         <h1>Fight Section</h1>
         <button id="attack">Attack</button>
-        <h1>Defender</h1>
+        <h1 id="h1-defender">Defender</h1>
         <div class="row">
             <div class="col-md-3">
                 <img id="defender">
+            </div>
+            <div class="col-md-3">
+                <img id="attack-gif" src="https://gifer.com/i/TFyR.gif">
+            </div>
+            <div class="col-md-3">
+                <img id="attacking-character">
             </div>
         </div>
         <button id="restart">Restart</button>

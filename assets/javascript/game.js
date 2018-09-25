@@ -37,7 +37,10 @@ var defender;
 var incrementer;
 
 $(document).ready(function() {
-     // Function to fill enemies row
+    // Hiding the attack gif
+    $("#attack-gif").css("display", "none");
+
+    // Function to fill enemies row
     function fillEnemiesRow () {
         for (var i=1; i<enemies.length+1; i++) {
             $("#"+i).attr("src", "assets/images/"+(enemies[(i-1)].img));
@@ -52,6 +55,7 @@ $(document).ready(function() {
 
     // Function to check status (determine if yourCharacter or enemy has 0 or less hp)
     function checkStatus () {
+        $("#attack-gif").css("display", "none");
         if (enemy.hp <= 0) {
             alert(enemy.name + " has been defeated");
             $("#defender").attr("src", "");
@@ -142,22 +146,21 @@ $(document).ready(function() {
 
     $("#attack").on("click", function() {
         console.log("clicked attack");
+        $("#attacking-character").attr("src", "assets/images/"+yourCharacter.img);
         enemy.hp-=yourCharacter.attack;
         yourCharacter.hp-=enemy.counter;
         yourCharacter.attack+=incrementer;
         console.log("enemy.hp: " + enemy.hp + ", yourCharacter.hp: " + yourCharacter.hp + ", yourCharacter.attack: " +
         yourCharacter.attack);
-        checkStatus();
+        $("#your-character").text(yourCharacter.name+": "+yourCharacter.hp);
+        $("#h1-defender").text(enemy.name+": "+enemy.hp+" v "+yourCharacter.name+": "+yourCharacter.hp);
+        $("#attack-gif").css("display", "");
+        setTimeout(function(){ checkStatus(); }, 1000);
     });
 
     $("#restart").on("click", function() {
         console.log("clicked attack");
         restart();
     });
-
-
-   
-
-
 });
 
